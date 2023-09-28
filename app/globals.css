@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply rounded-full bg-white border-white p-4
+  @apply rounded-full bg-white border-white
 }
 
 body {
