@@ -1,27 +1,29 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Axios from "axios";
 import Button from "@mui/material/Button";
+import toast from "react-hot-toast";
 
 export default function SignUpPage() {
   const router = useRouter();
-  const [user, setUser] = React.useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
     username: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onSignup = async () => {
     try {
       setLoading(true);
       const response = await Axios.post("/api/users/signup", user);
       console.log("Signup Success", response.data);
+      toast("Hello World");
       router.push("/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
