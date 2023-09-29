@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Axios from "axios";
 import Button from "@mui/material/Button";
-import toast from "react-hot-toast";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -23,7 +22,6 @@ export default function SignUpPage() {
       setLoading(true);
       const response = await Axios.post("/api/users/signup", user);
       console.log("Signup Success", response.data);
-      toast("Hello World");
       router.push("/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
